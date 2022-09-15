@@ -1,0 +1,21 @@
+.pop-up__close-button {
+    cursor: pointer;
+    transform: translateX(239px);
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 8px;
+    opacity: 1;
+    transition: opacity .3 ease;
+}
+
+@media screen and (max-width: 520px) {
+    .pop-up__close-button {
+        transform: translateX(131px);
+        margin-bottom: 16px;
+    }
+}
+
+.pop-up__close-button:hover {
+    opacity: .6;
+}

@@ -3,6 +3,21 @@
     width: 24px;
     background-color: black;
     border: solid white 1px;
-    align-self: flex-start;
-    margin-top: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+@media screen and (max-width: 1100px) {
+    .profile__edit-button {
+        height: 18px;
+        width: 18px;
+    }
+}
+
+.profile__edit-button:hover {
+    opacity: .6;
 }
