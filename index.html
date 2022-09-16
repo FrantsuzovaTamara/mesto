@@ -18,77 +18,75 @@
                 <div class="profile__main-info">
                     <img class="profile__avatar" src="images/profile__avatar.jpg" alt="Аватар пользователя">
                     <div class="profile__info">
-                        <div class="profile__edit-name">
+                        <div class="profile__description">
                             <h1 class="profile__name">Жак-Ив Кусто</h1>
-                            <button class="profile__edit-button">
-                                <img class="profile__edit-button-image" src="images/profile__edit-button.svg" alt="Карандаш">
-                            </button>
+                            <p class="profile__about">Исследователь океана</p>
                         </div>
-                        <p class="profile__about">Исследователь океана</p>
+                        <button aria-label="edit" type="button" class="profile__edit-button"></button>
                     </div>
                 </div>
-                <button class="profile__add-button">
-                    <img class="profile__add-button-image" src="images/profile__add-button.svg" alt="Плюс">
-                </button>
+                <button type="button" arial-lable="add" class="profile__add-button"></button>
             </section>
-            <section class="pop-up">
-                <button class="pop-up__close-button"><img class="pop-up__close-button-image" src="images/pop-up__close-icon.svg" alt="Закрыть"></button>
-                <div class="pop-up__form">
-                    <h2 class="pop-up__title">Редактировать профиль</h2>
-                    <input type="text" class="pop-up__input pop-up__input_change_name" value="Жак-Ив Кусто">
-                    <input type="text" class="pop-up__input pop-up__input_change_about" value="Исследователь океана">
-                    <button class="pop-up__save-button">Сохранить</button>
-                </div>
-            </section>
-            <section class="cards">
-                <div class="card">
-                    <img class="card__image" src="images/card__viborg.jpg" alt="Выборг с высоты">
-                    <div class="card__text">
-                        <h3 class="card__place-name">Выборг</h3>
-                        <img class="card__like" src="images/card__like-inactive.svg" alt="Нравится">
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card__image" src="images/card__elbrus.jpg" alt="Эльбрус">
-                    <div class="card__text">
-                        <h3 class="card__place-name">Эльбрус</h3>
-                        <img class="card__like" src="images/card__like-inactive.svg" alt="Нравится">
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card__image" src="images/card__kizhi.jpg" alt="Церковь в Кижах">
-                    <div class="card__text">
-                        <h3 class="card__place-name">Кижи</h3>
-                        <img class="card__like" src="images/card__like-inactive.svg" alt="Нравится">
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card__image" src="images/card__vladivostok.jpg" alt="Мост во Владивостоке">
-                    <div class="card__text">
-                        <h3 class="card__place-name">Владивосток</h3>
-                        <img class="card__like" src="images/card__like-inactive.svg" alt="Нравится">
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card__image" src="images/card__pyatigorsk.jpg" alt="Фото провала в Пятигорске">
-                    <div class="card__text">
-                        <h3 class="card__place-name">Пятигорск</h3>
-                        <img class="card__like" src="images/card__like-inactive.svg" alt="Нравится">
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card__image" src="images/card__terriberka.jpg" alt="Териберка">
-                    <div class="card__text">
-                        <h3 class="card__place-name">Териберка</h3>
-                        <img class="card__like" src="images/card__like-inactive.svg" alt="Нравится">
-                    </div>
-                </div>
+            <section class="content">
+                <ul class="cards">
+                    <li class="card">
+                        <img class="card__image" src="images/card__viborg.jpg" alt="Выборг с высоты">
+                        <div class="card__text">
+                            <h2 class="card__place-name">Выборг</h2>
+                            <button type="button" class="card__like" aria-label="like"></button>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <img class="card__image" src="images/card__elbrus.jpg" alt="Эльбрус">
+                        <div class="card__text">
+                            <h2 class="card__place-name">Эльбрус</h2>
+                            <button type="button" class="card__like" aria-label="like"></button>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <img class="card__image" src="images/card__kizhi.jpg" alt="Церковь в Кижах">
+                        <div class="card__text">
+                            <h2 class="card__place-name">Кижи</h2>
+                            <button type="button" class="card__like" aria-label="like"></button>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <img class="card__image" src="images/card__vladivostok.jpg" alt="Мост во Владивостоке">
+                        <div class="card__text">
+                            <h2 class="card__place-name">Владивосток</h2>
+                            <button type="button" class="card__like" aria-label="like"></button>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <img class="card__image" src="images/card__pyatigorsk.jpg" alt="Фото провала в Пятигорске">
+                        <div class="card__text">
+                            <h2 class="card__place-name">Пятигорск</h2>
+                            <button type="button" class="card__like" aria-label="like"></button>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <img class="card__image" src="images/card__terriberka.jpg" alt="Териберка">
+                        <div class="card__text">
+                            <h2 class="card__place-name">Териберка</h2>
+                            <button type="button" class="card__like" aria-label="like"></button>
+                        </div>
+                    </li>
+                </ul>
             </section>
         </main>
         <footer class="footer">
             <p class="footer__copyright">&copy; 2022, Mesto Russia</p>
         </footer>
+        <div class="pop-up">
+            <button aria-label="close" type="button" class="pop-up__close-button"></button>
+            <form class="pop-up__form" name="changeProfileInfo">
+                <h3 class="pop-up__title">Редактировать профиль</h3>
+                <input type="text" name="changeProfileName" class="pop-up__input pop-up__input_change_name" value="Жак-Ив Кусто">
+                <input type="text" name="changeProfileAbout" class="pop-up__input pop-up__input_change_about" value="Исследователь океана">
+                <button type="submit" class="pop-up__save-button">Сохранить</button>
+            </form>
+        </div>
     </div>
-    <script src="script.js"></script>
+    <script src="script/script.js"></script>
 </body>
 </html>

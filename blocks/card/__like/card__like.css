@@ -1,6 +1,11 @@
 .card__like {
     height: 19px;
     width: 22px;
+    background: none;
+    background-image: url(../../../images/card__like-inactive.svg);
+    background-repeat: no-repeat;
+    background-size: fill;
+    border: none;
     opacity: 1;
     cursor: pointer;
     transition: opacity .3s ease;
