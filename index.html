@@ -1,117 +1,89 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mesto</title>
-    <link rel="shortcut icon" href="images/head__icon.png" type="image/png">
-    <link rel="stylesheet" href="pages/index.css">
-  </head>
-  <body class="body">
-    <div class="page">
-      <header class="header">
-        <a class="header__logo" href="#"></a>
-      </header>
-      <main class="main">
-        <section class="profile">
-          <div class="profile__main-info">
-            <img class="profile__avatar"
-              src="images/profile__avatar.jpg" alt="Аватар
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto</title>
+  <link rel="shortcut icon" href="images/head__icon.png" type="image/png">
+  <link rel="stylesheet" href="pages/index.css">
+</head>
+
+<body class="body">
+  <div class="page">
+    <header class="header">
+      <a class="header__logo" href="#"></a>
+    </header>
+    <main class="main">
+      <section class="profile">
+        <div class="profile__main-info">
+          <img class="profile__avatar" src="images/profile__avatar.jpg" alt="Аватар
               пользователя">
-            <div class="profile__info">
-              <div class="profile__description">
-                <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <p class="profile__about">Исследователь океана</p>
-              </div>
-              <button aria-label="edit" type="button"
-                class="profile__edit-button"></button>
+          <div class="profile__info">
+            <div class="profile__description">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <p class="profile__about">Исследователь океана</p>
             </div>
+            <button aria-label="edit" type="button" class="profile__edit-button"></button>
           </div>
-          <button type="button" aria-label="add" class="profile__add-button"></button>
-        </section>
-        <section class="content">
-          <ul class="cards">
+        </div>
+        <button type="button" aria-label="add" class="profile__add-button"></button>
+      </section>
+      <section class="content">
+        <ul class="cards">
+          <template id="card-template">
             <li class="card">
-              <img class="card__image"
-                src="images/card__viborg.jpg" alt="Выборг с
-                высоты">
+              <button type="button" class="card__delete-button" aria-lable="delete"></button>
+              <img class="card__image" alt="">
               <div class="card__text">
-                <h2 class="card__place-name">Выборг</h2>
-                <button type="button" class="card__like-button"
-                  aria-label="like"></button>
+                <h2 class="card__place-name"></h2>
+                <button type="button" class="card__like-button" aria-label="like"></button>
               </div>
             </li>
-            <li class="card">
-              <img class="card__image"
-                src="images/card__elbrus.jpg" alt="Эльбрус">
-              <div class="card__text">
-                <h2 class="card__place-name">Эльбрус</h2>
-                <button type="button" class="card__like-button"
-                  aria-label="like"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img class="card__image"
-                src="images/card__kizhi.jpg" alt="Церковь в
-                Кижах">
-              <div class="card__text">
-                <h2 class="card__place-name">Кижи</h2>
-                <button type="button" class="card__like-button"
-                  aria-label="like"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img class="card__image"
-                src="images/card__vladivostok.jpg" alt="Мост во
-                Владивостоке">
-              <div class="card__text">
-                <h2 class="card__place-name">Владивосток</h2>
-                <button type="button" class="card__like-button"
-                  aria-label="like"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img class="card__image"
-                src="images/card__pyatigorsk.jpg" alt="Фото
-                провала в Пятигорске">
-              <div class="card__text">
-                <h2 class="card__place-name">Пятигорск</h2>
-                <button type="button" class="card__like-button"
-                  aria-label="like"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img class="card__image"
-                src="images/card__terriberka.jpg"
-                alt="Териберка">
-              <div class="card__text">
-                <h2 class="card__place-name">Териберка</h2>
-                <button type="button" class="card__like-button"
-                  aria-label="like"></button>
-              </div>
-            </li>
-          </ul>
-        </section>
-      </main>
-      <footer class="footer">
-        <p class="footer__copyright">&copy; 2022, Mesto Russia</p>
-      </footer>
-      <div class="pop-up">
-        <button aria-label="close" type="button"
-          class="pop-up__close-button"></button>
+          </template>
+        </ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2022, Mesto Russia</p>
+    </footer>
+    <div class="pop-up">
+      <div class="pop-up__content">
+        <button aria-label="close" type="button" class="pop-up__close-button"></button>
         <form class="pop-up__form" name="changeProfileInfo">
           <h3 class="pop-up__title">Редактировать профиль</h3>
-          <input type="text" name="changeProfileName"
-            class="pop-up__input pop-up__input_change_name"
+          <input type="text" name="changeProfileName" class="pop-up__input pop-up__input_change_name"
             value="Жак-Ив Кусто">
-          <input type="text" name="changeProfileAbout"
-            class="pop-up__input pop-up__input_change_about"
+          <input type="text" name="changeProfileAbout" class="pop-up__input pop-up__input_change_about"
             value="Исследователь океана">
-          <button type="submit" class="pop-up__save-button">Сохранить</button>
+          <button type="submit" class="pop-up__submit-button pop-up__save-button">Сохранить</button>
         </form>
       </div>
     </div>
-    <script src="script/script.js"></script>
-  </body>
+    <div class="pop-up">
+      <div class="pop-up__content">
+        <button aria-label="close" type="button" class="pop-up__close-button"></button>
+        <form class="pop-up__form" name="changeProfileInfo">
+          <h3 class="pop-up__title">Новое место</h3>
+          <input type="text" name="addPictureName" class="pop-up__input pop-up__input_add_name" placeholder="Название">
+          <input type="text" name="addPicture" class="pop-up__input pop-up__input_add_link"
+            placeholder="Ссылка на картинку">
+          <button type="submit" class="pop-up__submit-button pop-up__add-button">Создать</button>
+        </form>
+      </div>
+    </div>
+    <div class="pop-up pop-up_background_dark">
+      <div class="pop-up__content">
+        <button aria-label="close" type="button" class="pop-up__close-button"></button>
+        <figure class="pop-up__figure">
+          <img class="pop-up__image" alt="">
+          <figcaption class="pop-up__place-name"></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+  <script src="script/script.js"></script>
+</body>
+
 </html>

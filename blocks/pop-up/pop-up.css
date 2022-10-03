@@ -1,4 +1,5 @@
 .pop-up {
+  display: flex;
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
@@ -7,6 +8,7 @@
   height: 100%;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity .5s ease;
 }
