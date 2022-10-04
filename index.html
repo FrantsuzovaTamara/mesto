@@ -8,6 +8,8 @@
   <title>Mesto</title>
   <link rel="shortcut icon" href="images/head__icon.png" type="image/png">
   <link rel="stylesheet" href="pages/index.css">
+  <script defer src="script/cards.js"></script>
+  <script defer src="script/index.js"></script>
 </head>
 
 <body class="body">
@@ -25,20 +27,20 @@
               <h1 class="profile__name">Жак-Ив Кусто</h1>
               <p class="profile__about">Исследователь океана</p>
             </div>
-            <button aria-label="edit" type="button" class="profile__edit-button"></button>
+            <button aria-label="Изменить" type="button" class="profile__edit-button"></button>
           </div>
         </div>
-        <button type="button" aria-label="add" class="profile__add-button"></button>
+        <button type="button" aria-label="Добавить карточку" class="profile__add-button"></button>
       </section>
       <section class="content">
         <ul class="cards">
           <template id="card-template">
             <li class="card">
-              <button type="button" class="card__delete-button" aria-lable="delete"></button>
+              <button type="button" class="card__delete-button" aria-lable="Удалить"></button>
               <img class="card__image" alt="">
               <div class="card__text">
                 <h2 class="card__place-name"></h2>
-                <button type="button" class="card__like-button" aria-label="like"></button>
+                <button type="button" class="card__like-button" aria-label="Нравится"></button>
               </div>
             </li>
           </template>
@@ -48,9 +50,9 @@
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022, Mesto Russia</p>
     </footer>
-    <div class="pop-up">
+    <div class="pop-up edit-form">
       <div class="pop-up__content">
-        <button aria-label="close" type="button" class="pop-up__close-button"></button>
+        <button aria-label="Закрыть" type="button" class="pop-up__close-button"></button>
         <form class="pop-up__form" name="changeProfileInfo">
           <h3 class="pop-up__title">Редактировать профиль</h3>
           <input type="text" name="changeProfileName" class="pop-up__input pop-up__input_change_name"
@@ -61,21 +63,21 @@
         </form>
       </div>
     </div>
-    <div class="pop-up">
+    <div class="pop-up add-form">
       <div class="pop-up__content">
-        <button aria-label="close" type="button" class="pop-up__close-button"></button>
+        <button aria-label="Закрыть" type="button" class="pop-up__close-button"></button>
         <form class="pop-up__form" name="changeProfileInfo">
           <h3 class="pop-up__title">Новое место</h3>
-          <input type="text" name="addPictureName" class="pop-up__input pop-up__input_add_name" placeholder="Название">
-          <input type="text" name="addPicture" class="pop-up__input pop-up__input_add_link"
-            placeholder="Ссылка на картинку">
+          <input type="text" name="addPictureName" class="pop-up__input pop-up__input_add_name" placeholder="Название" required>
+          <input type="url" name="addPicture" class="pop-up__input pop-up__input_add_link"
+            placeholder="Ссылка на картинку" required>
           <button type="submit" class="pop-up__submit-button pop-up__add-button">Создать</button>
         </form>
       </div>
     </div>
-    <div class="pop-up pop-up_background_dark">
+    <div class="pop-up pop-up_background_dark open-card">
       <div class="pop-up__content">
-        <button aria-label="close" type="button" class="pop-up__close-button"></button>
+        <button aria-label="Закрыть" type="button" class="pop-up__close-button"></button>
         <figure class="pop-up__figure">
           <img class="pop-up__image" alt="">
           <figcaption class="pop-up__place-name"></figcaption>
@@ -83,7 +85,6 @@
       </div>
     </div>
   </div>
-  <script src="script/script.js"></script>
 </body>
 
 </html>
