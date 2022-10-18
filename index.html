@@ -14,10 +14,13 @@
 
 <body class="body">
   <div class="page">
+
     <header class="header">
       <a class="header__logo" href="#"></a>
     </header>
+
     <main class="main">
+
       <section class="profile">
         <div class="profile__main-info">
           <img class="profile__avatar" src="images/profile__avatar.jpg" alt="Аватар
@@ -32,6 +35,7 @@
         </div>
         <button type="button" aria-label="Добавить карточку" class="profile__add-button"></button>
       </section>
+
       <section class="content">
         <ul class="cards">
           <template id="card-template">
@@ -46,35 +50,53 @@
           </template>
         </ul>
       </section>
+
     </main>
+
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022, Mesto Russia</p>
     </footer>
+
     <div class="pop-up" id="pop-up_edit">
       <div class="pop-up__content">
         <button aria-label="Закрыть" type="button" class="pop-up__close-button"></button>
-        <form class="pop-up__form" name="changeProfileInfo">
+        <form class="pop-up__form" name="changeProfileInfo" novalidate>
           <h3 class="pop-up__title">Редактировать профиль</h3>
-          <input type="text" name="changeProfileName" class="pop-up__input pop-up__input_change_name"
-            value="Жак-Ив Кусто">
-          <input type="text" name="changeProfileAbout" class="pop-up__input pop-up__input_change_about"
-            value="Исследователь океана">
-          <button type="submit" class="pop-up__submit-button pop-up__save-button">Сохранить</button>
+          <fieldset class="pop-up__set">
+            <lable class="pop-up__field">
+              <input id="profile-name" type="text" name="changeProfileName" class="pop-up__input pop-up__input_change_name" placeholder="Имя" minlength="2" maxlength="40" required>
+              <span class="pop-up__input-error profile-name-error"></span>
+            </lable>
+            <lable class="pop-up__field">
+              <input id="about" type="text" name="changeProfileAbout" class="pop-up__input pop-up__input_change_about" placeholder="О себе" minlength="2" maxlength="200" required>
+              <span class="pop-up__input-error about-error"></span>
+            </lable>
+            <button type="submit" class="pop-up__submit-button pop-up__save-button" disabled>Сохранить</button>
+          </fieldset>
         </form>
       </div>
     </div>
+
     <div class="pop-up" id="pop-up_add">
       <div class="pop-up__content">
         <button aria-label="Закрыть" type="button" class="pop-up__close-button"></button>
-        <form class="pop-up__form" name="changeProfileInfo">
+        <form class="pop-up__form" name="addPicture" novalidate>
           <h3 class="pop-up__title">Новое место</h3>
-          <input type="text" name="addPictureName" class="pop-up__input pop-up__input_add_name" placeholder="Название" required>
-          <input type="url" name="addPicture" class="pop-up__input pop-up__input_add_link"
-            placeholder="Ссылка на картинку" required>
-          <button type="submit" class="pop-up__submit-button pop-up__add-button">Создать</button>
+          <fieldset class="pop-up__set">
+            <lable class="pop-up__field">
+              <input id="name" type="text" name="addPictureName" class="pop-up__input pop-up__input_add_name" placeholder="Название" minlength="2" maxlength="30" required>
+              <span class="pop-up__input-error name-error"></span>
+            </lable>
+            <lable class="pop-up__field">
+              <input id="link" type="url" name="addPicture" class="pop-up__input pop-up__input_add_link" placeholder="Ссылка на картинку" required>
+              <span class="pop-up__input-error link-error"></span>
+            </lable>
+            <button type="submit" class="pop-up__submit-button pop-up__add-button" disabled>Создать</button>
+          </fieldset>
         </form>
       </div>
     </div>
+
     <div class="pop-up pop-up_background_dark" id="pop-up_open">
       <div class="pop-up__content">
         <button aria-label="Закрыть" type="button" class="pop-up__close-button"></button>
@@ -84,6 +106,7 @@
         </figure>
       </div>
     </div>
+
   </div>
 </body>
 
