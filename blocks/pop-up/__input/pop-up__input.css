@@ -25,6 +25,10 @@
 @media screen and (max-width: 520px) {
   .pop-up__input {
     margin-bottom: 45px;
+    min-width: 0;
+  }
+  .pop-up__field:last-of-type > .pop-up__input {
+    margin-bottom: 38px;
   }
 }
 
