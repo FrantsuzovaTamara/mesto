@@ -74,7 +74,6 @@ function openCard(name, link) {
   fullImage.alt = name;
   textUnderImage.textContent = name;
   showPopUp(openCardPopUp);
-  document.addEventListener('keydown', closeByEscape);
 }
 
 //Open pop-up
@@ -91,6 +90,7 @@ function openEditPopUp() {
 
 function openPopUp(popup) {
   showPopUp(popup);
+  document.addEventListener('keydown', closeByEscape);
   resetForm(popup);
 }
 
@@ -154,7 +154,6 @@ formList.forEach((form) => {
 function resetForm(popup) {
   const form = popup.querySelector('.pop-up__form');
   const inputList = Array.from(form.querySelectorAll('.pop-up__input'));
-  const button = form.querySelector('.pop-up__submit-button');
   form.reset();
   inputList.forEach((inputElement) => {
     hideInputError(form, inputElement, {inputErrorClass: 'pop-up__input_type_error', errorClass: 'pop-up__input-error_active'});
