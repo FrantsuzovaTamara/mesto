@@ -74,6 +74,7 @@ function openCard(name, link) {
   fullImage.alt = name;
   textUnderImage.textContent = name;
   showPopUp(openCardPopUp);
+  document.addEventListener('keydown', closeByEscape);
 }
 
 //Open pop-up
@@ -100,6 +101,14 @@ addButton.addEventListener("click", () => openPopUp(addPopUp));
 
 function closePopUp(popup) {
   popup.classList.remove("pop-up_opened");
+  popup.removeEventListener("keydown", closeByEscape);
+}
+
+function closeByEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedPopUp = document.querySelector('.pop-up_opened');
+    closePopUp(openedPopUp);
+  }
 }
 
 const popups = document.querySelectorAll('.pop-up')
@@ -107,11 +116,6 @@ const popups = document.querySelectorAll('.pop-up')
 popups.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => {
     if (evt.target.classList.contains('pop-up_opened') || evt.target.classList.contains('pop-up__close-button')) {
-      closePopUp(popup);
-    }
-  })
-  document.addEventListener('keydown', (evt) => {
-    if (evt.key === "Escape") {
       closePopUp(popup);
     }
   })
