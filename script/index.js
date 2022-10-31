@@ -1,84 +1,12 @@
-// Main constants
+// Import
 
-const profileInfo = document.querySelector(".profile");
-
-const editButton = profileInfo.querySelector(".profile__edit-button");
-const addButton = profileInfo.querySelector(".profile__add-button");
-const profileName = profileInfo.querySelector(".profile__name");
-const profileAbout = profileInfo.querySelector(".profile__about");
-
-const cards = document.querySelector(".cards");
-
-
-// Pop Up constants
-
-const editPopUp = document.querySelector("#pop-up_edit");
-
-const profileNameInput = editPopUp.querySelector(".pop-up__input_change_name");
-const aboutInput = editPopUp.querySelector(".pop-up__input_change_about");
-
-const addPopUp = document.querySelector("#pop-up_add");
-
-const pictureNameInput = addPopUp.querySelector(".pop-up__input_add_name");
-const linkInput = addPopUp.querySelector(".pop-up__input_add_link");
-
-const openCardPopUp = document.querySelector("#pop-up_open");
-
-const fullImage = openCardPopUp.querySelector(".pop-up__image");
-const textUnderImage = openCardPopUp.querySelector(".pop-up__place-name");
-
-//Add cards
-
-const cardsSection = document.querySelector(".cards");
-const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
-
-function addCard(item) {
-  const card = createCard(item);
-  fillCard(item, card);
-  cardsSection.prepend(card);
-}
-
-function createCard(item) {
-  const newCard = cardTemplate.cloneNode(true)
-  newCard.querySelector(".card__like-button").addEventListener('click', likePicture);
-  newCard.querySelector(".card__delete-button").addEventListener('click', () => deleteCard(newCard));
-  newCard.querySelector(".card__image").addEventListener('click', () => openCard(item.name, item.link));
-  return newCard;
-}
-
-function fillCard(item, card) {
-  const image = card.querySelector(".card__image");
-  image.src = item.link;
-  image.alt = item.name;
-  card.querySelector(".card__place-name").textContent = item.name;
-}
-
-initialCards.forEach(addCard);
-
-// Like picture
-
-function likePicture(evt) {
-  evt.target.classList.toggle("card__like-button_active");
-}
-
-// Delete card
-
-function deleteCard(card) {
-  card.remove();
-}
-
-// Open full version of image
-
-function openCard(name, link) {
-  fullImage.src = link;
-  fullImage.alt = name;
-  textUnderImage.textContent = name;
-  showPopUp(openCardPopUp);
-}
+import { editButton, addButton, profileName, profileAbout, editPopUp, profileNameInput, aboutInput, addPopUp, pictureNameInput, linkInput, cardSelectors } from './constants.js'
+import { Card, addCard } from "./card.js";
+import { hideInputErrorAfterReset } from "./formvalidator.js";
 
 //Open pop-up
 
-function showPopUp(popup) {
+export function showPopUp(popup) {
   popup.classList.add("pop-up_opened");
 }
 
@@ -139,7 +67,11 @@ function editProfile() {
 }
 
 function addPicture() {
-  addCard({name: pictureNameInput.value, link: linkInput.value});
+  const card = new Card({
+    name: pictureNameInput.value, 
+    link: linkInput.value
+  }, cardSelectors)
+  addCard(card);
   closePopUp(addPopUp);
 }
 
@@ -153,9 +85,6 @@ formList.forEach((form) => {
 
 function resetForm(popup) {
   const form = popup.querySelector('.pop-up__form');
-  const inputList = Array.from(form.querySelectorAll('.pop-up__input'));
   form.reset();
-  inputList.forEach((inputElement) => {
-    hideInputError(form, inputElement, {inputErrorClass: 'pop-up__input_type_error', errorClass: 'pop-up__input-error_active'});
-  })
+  hideInputErrorAfterReset(form.querySelector('.pop-up__set'), form.querySelectorAll('.pop-up__input'));
 }
