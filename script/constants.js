@@ -11,11 +11,14 @@ const profileAbout = profileInfo.querySelector(".profile__about");
 
 const editPopUp = document.querySelector("#pop-up_edit");
 
+const editForm = editPopUp.querySelector(".pop-up__form");
 const profileNameInput = editPopUp.querySelector(".pop-up__input_change_name");
 const aboutInput = editPopUp.querySelector(".pop-up__input_change_about");
 
 const addPopUp = document.querySelector("#pop-up_add");
 
+
+const addForm = addPopUp.querySelector(".pop-up__form");
 const pictureNameInput = addPopUp.querySelector(".pop-up__input_add_name");
 const linkInput = addPopUp.querySelector(".pop-up__input_add_link");
 
@@ -50,9 +53,11 @@ export {
   profileName, 
   profileAbout, 
   editPopUp, 
+  editForm,
   profileNameInput, 
   aboutInput, 
   addPopUp, 
+  addForm,
   pictureNameInput, 
   linkInput, 
   openCardPopUp, 

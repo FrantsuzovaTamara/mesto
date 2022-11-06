@@ -8,11 +8,7 @@
   <title>Mesto</title>
   <link rel="shortcut icon" href="images/head__icon.png" type="image/png">
   <link rel="stylesheet" href="pages/index.css">
-  <script defer type="module" src="script/cards.js"></script>
-  <script defer type="module" src="script/constants.js"></script>
   <script defer type="module" src="script/index.js"></script>
-  <script defer type="module" src="script/card.js"></script>
-  <script defer type="module" src="script/formvalidator.js"></script>
 </head>
 
 <body class="body">
@@ -65,7 +61,6 @@
         <button aria-label="Закрыть" type="button" class="pop-up__close-button"></button>
         <form class="pop-up__form" name="changeProfileInfo" novalidate>
           <h3 class="pop-up__title">Редактировать профиль</h3>
-          <fieldset class="pop-up__set">
             <lable class="pop-up__field">
               <input id="profile-name" type="text" name="changeProfileName" class="pop-up__input pop-up__input_change_name" placeholder="Имя" minlength="2" maxlength="40" required>
               <span class="pop-up__input-error profile-name-error"></span>
@@ -75,7 +70,6 @@
               <span class="pop-up__input-error about-error"></span>
             </lable>
             <button type="submit" class="pop-up__submit-button pop-up__save-button" disabled>Сохранить</button>
-          </fieldset>
         </form>
       </div>
     </div>
@@ -85,7 +79,6 @@
         <button aria-label="Закрыть" type="button" class="pop-up__close-button"></button>
         <form class="pop-up__form" name="addPicture" novalidate>
           <h3 class="pop-up__title">Новое место</h3>
-          <fieldset class="pop-up__set">
             <lable class="pop-up__field">
               <input id="name" type="text" name="addPictureName" class="pop-up__input pop-up__input_add_name" placeholder="Название" minlength="2" maxlength="30" required>
               <span class="pop-up__input-error name-error"></span>
@@ -95,7 +88,6 @@
               <span class="pop-up__input-error link-error"></span>
             </lable>
             <button type="submit" class="pop-up__submit-button pop-up__add-button" disabled>Создать</button>
-          </fieldset>
         </form>
       </div>
     </div>
