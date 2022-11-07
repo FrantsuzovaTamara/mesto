@@ -22,7 +22,7 @@ import {
   cardsSection 
 } from './constants.js'
 import { Card } from "./Сard.js";
-import { FormValidator } from "./FormValidator.js";
+import { FormValidator } from "./FormValidator.js"
 
 // Add cards
 
