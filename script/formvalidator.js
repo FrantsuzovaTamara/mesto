@@ -53,20 +53,14 @@ export class FormValidator {
     });
   }
 
-  enableValidation() {
-    this._setEventListeners();
-  }
-}
-
-export class hideErrorMessages extends FormValidator {
-  constructor(form, formSelectors) {
-    super(form, formSelectors);
-  }
-
-  enableValidation() {
+  hideErrorMesseges() {
     this._toggleButtonState();
     this._inputs.forEach((input) => {
       this._hideInputError(input);
-    })
+    });
+  }
+
+  enableValidation() {
+    this._setEventListeners();
   }
 }

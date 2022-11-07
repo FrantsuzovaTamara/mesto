@@ -21,8 +21,8 @@ import {
   formSelectors, 
   cardsSection 
 } from './constants.js'
-import { Card } from "./card.js";
-import { FormValidator, hideErrorMessages } from "./formvalidator.js";
+import { Card } from "./Сard.js";
+import { FormValidator } from "./FormValidator.js";
 
 // Add cards
 
@@ -34,32 +34,26 @@ function handleOpenPopup(link, name) {
 }
 
 initialCards.forEach((item) => {
-  const card = new Card(item, cardSelectors, handleOpenPopup);
-  addCard(card)
+  const card = createCard(item);
+  addCard(card);
 })
 
 function addCard(card) {
-  const cardElement = createCard(card);
-  cardsSection.prepend(cardElement);
+  cardsSection.prepend(card);
 }
 
-function createCard(card) {
-  return card.generateCard();
+function createCard(item) {
+  const card = new Card(item, cardSelectors, handleOpenPopup);
+  const cardElement = card.generateCard();
+  return cardElement;
 }
 
 // Validation
 
-Array.from(document.querySelectorAll('.pop-up__form')).forEach((form) => {
-    const formElement = new FormValidator(form, formSelectors);
-    formElement.enableValidation();
-});
-
-
-function hideInputError(popup) {
-  const form = popup.querySelector('.pop-up__form');
-  const formElement = new hideErrorMessages(form, formSelectors);
-  formElement.enableValidation();
-}
+const editFormValidation = new FormValidator(editForm, formSelectors);
+const addFormValidation = new FormValidator(addForm, formSelectors);
+editFormValidation.enableValidation();
+addFormValidation.enableValidation();
 
 //Open pop-up
 
@@ -70,16 +64,16 @@ function showPopUp(popup) {
 
 function openEditPopUp() {
   showPopUp(editPopUp);
-  hideInputError(editPopUp);
   profileNameInput.value = profileName.textContent;
   aboutInput.value = profileAbout.textContent;
+  editFormValidation.hideErrorMesseges();
 }
 
 editButton.addEventListener("click", openEditPopUp);
 addButton.addEventListener("click", () => {
   showPopUp(addPopUp);
-  addPopUp.querySelector('.pop-up__form').reset();
-  hideInputError(addPopUp);
+  addForm.reset();
+  addFormValidation.hideErrorMesseges();
 });
 
 //Close pop-up
@@ -117,10 +111,10 @@ function editProfile(evt) {
 
 function addPicture(evt) {
   evt.preventDefault();
-  const card = new Card({
+  const card = createCard({
     name: pictureNameInput.value, 
     link: linkInput.value
-  }, cardSelectors, handleOpenPopup)
+  });
   addCard(card);
   closePopUp(addPopUp);
 }
