@@ -4,7 +4,7 @@
   background: none;
   background-image: url(../../../images/card__like-inactive.svg);
   background-repeat: no-repeat;
-  background-size: fill;
+  background-size: cover;
   border: none;
   opacity: 1;
   cursor: pointer;
