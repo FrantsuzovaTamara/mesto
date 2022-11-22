@@ -4,10 +4,8 @@ export class UserInfo {
     this._about = document.querySelector(about);
   }
 
-  getUserInfo(inputs) {
-    this._inputList = { name: inputs[0], about: inputs[1] }
-    this._inputList.name.value = this._name.textContent;
-    this._inputList.about.value = this._about.textContent;
+  getUserInfo() {
+    return { name: this._name.textContent, about: this._about.textContent};
   }
 
   setUserInfo({ name, about }) {

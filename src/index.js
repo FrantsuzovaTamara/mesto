@@ -16,6 +16,19 @@ import { PopupWithImage } from "../script/components/PopupWithImage.js";
 import { UserInfo } from "../script/components/UserInfo.js";
 import { FormValidator } from "../script/components/FormValidator.js"
 
+// Pop-up
+
+const popupOpenCard = new PopupWithImage('#pop-up_open');
+popupOpenCard.setEventListener();
+
+const popupOpenEditInfo = new PopupWithForm('#pop-up_edit', editProfile);
+popupOpenEditInfo.setEventListener();
+
+const userInfo = new UserInfo({ name: '.profile__name', about: '.profile__about'});
+
+const popupAddCard = new PopupWithForm('#pop-up_add', addCard);
+popupAddCard.setEventListener();
+
 // Add cards
 
 const cardsList = new Section({ data: initialCards, renderer: item => {
@@ -25,7 +38,6 @@ const cardsList = new Section({ data: initialCards, renderer: item => {
 cardsList.renderItems();
 
 function handleOpenPopup(name, link) {
-  const popupOpenCard = new PopupWithImage('#pop-up_open');
   popupOpenCard.open(name, link);
 }
 
@@ -42,16 +54,10 @@ const addFormValidation = new FormValidator(addForm, formSelectors);
 editFormValidation.enableValidation();
 addFormValidation.enableValidation();
 
-//Pop-up
-
-const popupOpenEditInfo = new PopupWithForm('#pop-up_edit', editProfile);
-popupOpenEditInfo.setEventListener();
-const userInfo = new UserInfo({ name: '.profile__name', about: '.profile__about'});
-const popupAddCard = new PopupWithForm('#pop-up_add', addCard);
-popupAddCard.setEventListener();
+// Open pop-up
 
 editButton.addEventListener("click", () => {
-  userInfo.getUserInfo(editForm.querySelectorAll('.pop-up__input'));
+  popupOpenEditInfo.setInputValues(userInfo.getUserInfo());
   popupOpenEditInfo.open();
   editFormValidation.hideErrorMesseges();
 });
@@ -64,15 +70,12 @@ addButton.addEventListener("click", () => {
 //Submit form
 
 function editProfile(inputList) {
-  const inputs = { name: inputList[0], about: inputList[1] };
-  userInfo.setUserInfo(inputs);
+  userInfo.setUserInfo(inputList);
   popupOpenEditInfo.close();
 }
 
 function addCard(inputList) {
-  const inputs = { name: inputList[0], link: inputList[1] };
-  const card = createCard(inputs);
-  const newCard = new Section({ data: card }, '.cards');
-  newCard.setItem(card);
+  const card = createCard(inputList);
+  cardsList.setItem(card);
   popupAddCard.close();
 }

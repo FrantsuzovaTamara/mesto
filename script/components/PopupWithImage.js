@@ -9,7 +9,6 @@ export class PopupWithImage extends Popup {
   
   open(name, link) {
     super.open();
-    this.setEventListener();
     this._fullImage.src =link;
     this._fullImage.alt = name;
     this._textUnderPhoto.textContent = name;

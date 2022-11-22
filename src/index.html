@@ -61,11 +61,11 @@
         <form class="pop-up__form" name="changeProfileInfo" novalidate>
           <h3 class="pop-up__title">Редактировать профиль</h3>
             <lable class="pop-up__field">
-              <input id="profile-name" type="text" name="changeProfileName" class="pop-up__input pop-up__input_change_name" placeholder="Имя" minlength="2" maxlength="40" required>
+              <input id="profile-name" type="text" name="name" class="pop-up__input pop-up__input_change_name" placeholder="Имя" minlength="2" maxlength="40" required>
               <span class="pop-up__input-error profile-name-error"></span>
             </lable>
             <lable class="pop-up__field">
-              <input id="about" type="text" name="changeProfileAbout" class="pop-up__input pop-up__input_change_about" placeholder="О себе" minlength="2" maxlength="200" required>
+              <input id="about" type="text" name="about" class="pop-up__input pop-up__input_change_about" placeholder="О себе" minlength="2" maxlength="200" required>
               <span class="pop-up__input-error about-error"></span>
             </lable>
             <button type="submit" class="pop-up__submit-button pop-up__save-button" disabled>Сохранить</button>
@@ -79,11 +79,11 @@
         <form class="pop-up__form" name="addPicture" novalidate>
           <h3 class="pop-up__title">Новое место</h3>
             <lable class="pop-up__field">
-              <input id="name" type="text" name="addPictureName" class="pop-up__input pop-up__input_add_name" placeholder="Название" minlength="2" maxlength="30" required>
+              <input id="name" type="text" name="name" class="pop-up__input pop-up__input_add_name" placeholder="Название" minlength="2" maxlength="30" required>
               <span class="pop-up__input-error name-error"></span>
             </lable>
             <lable class="pop-up__field">
-              <input id="link" type="url" name="addPicture" class="pop-up__input pop-up__input_add_link" placeholder="Ссылка на картинку" required>
+              <input id="link" type="url" name="link" class="pop-up__input pop-up__input_add_link" placeholder="Ссылка на картинку" required>
               <span class="pop-up__input-error link-error"></span>
             </lable>
             <button type="submit" class="pop-up__submit-button pop-up__add-button" disabled>Создать</button>
