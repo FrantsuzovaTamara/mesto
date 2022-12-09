@@ -21,12 +21,14 @@
 
       <section class="profile">
         <div class="profile__main-info">
-          <img class="profile__avatar" src="<%=require('../images/profile__avatar.jpeg')%>" alt="Аватар
+          <div class="profile__avatar-overlay" href="#">
+            <img class="profile__avatar" src="" alt="Аватар
               пользователя">
+          </div>
           <div class="profile__info">
             <div class="profile__description">
-              <h1 class="profile__name">Персик</h1>
-              <p class="profile__about">Самый милый пёсик в мире</p>
+              <h1 class="profile__name"></h1>
+              <p class="profile__about"></p>
             </div>
             <button aria-label="Изменить" type="button" class="profile__edit-button"></button>
           </div>
@@ -42,7 +44,10 @@
               <img class="card__image" alt="">
               <div class="card__text">
                 <h2 class="card__place-name"></h2>
-                <button type="button" class="card__like-button" aria-label="Нравится"></button>
+                <div class="card__like">
+                  <button type="button" class="card__like-button" aria-label="Нравится"></button>
+                  <p class="card__likes-number"></p>
+                </div>
               </div>
             </li>
           </template>
@@ -67,6 +72,20 @@
             <lable class="pop-up__field">
               <input id="about" type="text" name="about" class="pop-up__input pop-up__input_change_about" placeholder="О себе" minlength="2" maxlength="200" required>
               <span class="pop-up__input-error about-error"></span>
+            </lable>
+            <button type="submit" class="pop-up__submit-button pop-up__save-button" disabled>Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="pop-up" id="pop-up_edit-avatar">
+      <div class="pop-up__content">
+        <button aria-label="Закрыть" type="button" class="pop-up__close-button"></button>
+        <form class="pop-up__form" name="changeAvatar" novalidate>
+          <h3 class="pop-up__title">Обновить аватар</h3>
+            <lable class="pop-up__field">
+              <input id="link" type="url" name="avatar" class="pop-up__input pop-up__input_add_link" placeholder="Ссылка на картинку" required>
+              <span class="pop-up__input-error link-error"></span>
             </lable>
             <button type="submit" class="pop-up__submit-button pop-up__save-button" disabled>Сохранить</button>
         </form>
@@ -98,6 +117,16 @@
           <img class="pop-up__image" alt="">
           <figcaption class="pop-up__place-name"></figcaption>
         </figure>
+      </div>
+    </div>
+
+    <div class="pop-up" id="pop-up_agreement">
+      <div class="pop-up__content">
+        <button aria-label="Закрыть" type="button" class="pop-up__close-button"></button>
+        <div class="pop-up__form">
+          <h3 class="pop-up__title pop-up__title_agreement">Вы уверены?</h3>
+          <button type="button" class="pop-up__submit-button pop-up__agree-button">Да</button>
+        </div>
       </div>
     </div>
 
