@@ -1,5 +1,5 @@
 export class Card {
-  constructor(data, cardSelectors, handleOpenPopUp, openAgreementPopup, userId, likeCard, removeLike) {
+  constructor(data, cardSelectors, handleOpenPopUp, openPopupWithConfirmation, userId, likeCard, removeLike) {
     this._link = data.link;
     this._name = data.name;
     this._cardId = data.id;
@@ -8,7 +8,7 @@ export class Card {
     this._myId = userId;
     this._cardSelectors = cardSelectors;
     this._handleOpenPopUp = handleOpenPopUp;
-    this._openAgreementPopup = openAgreementPopup;
+    this._openPopupWithConfirmation = openPopupWithConfirmation;
     this._likeCard = likeCard;
     this._removeLike = removeLike;
   }
@@ -45,7 +45,7 @@ export class Card {
     });
     if (this._myId === this._ownerId) {
       this._element.querySelector(this._cardSelectors.deleteButton).addEventListener('click', () => {
-        this._openAgreementPopup(this.delete, this._element, this._cardId);
+        this._openPopupWithConfirmation(this.delete, this._element, this._cardId);
       });
     }
     this._element.querySelector(this._cardSelectors.image).addEventListener('click', () => {

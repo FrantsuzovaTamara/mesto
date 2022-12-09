@@ -17,7 +17,7 @@ import { PopupWithForm } from "../script/components/PopUpWithForm.js";
 import { PopupWithImage } from "../script/components/PopupWithImage.js";
 import { UserInfo } from "../script/components/UserInfo.js";
 import { FormValidator } from "../script/components/FormValidator.js"
-import { PopupAgreement } from "../script/components/PopupAgreement.js";
+import { PopupWithConfirmation } from "../script/components/PopupWithConfirmation.js";
 import { Api } from "../script/components/Api.js";
 
 // New classes
@@ -42,8 +42,8 @@ const api = new Api({
   }
 });
 
-const popupAgreement = new PopupAgreement('#pop-up_agreement');
-popupAgreement.setEventListener();
+const popupWithConfirmation = new PopupWithConfirmation('#pop-up_agreement');
+popupWithConfirmation.setEventListener();
 
 const userInfo = new UserInfo({ name: '.profile__name', about: '.profile__about', avatar: '.profile__avatar' });
 
@@ -51,13 +51,12 @@ const userInfo = new UserInfo({ name: '.profile__name', about: '.profile__about'
 
 let userId = '';
 api.getUserInfo(setUserInfoFromApi);
-
 api.getCard(renderApiArray);
 
 // Functions
 
-function openAgreementPopUp(deleteCardOnPage, card, cardId) {
-  popupAgreement.open(deleteCardOnPage, card, cardId, deleteCardInApi);
+function openPopupWithConfirmation(deleteCardOnPage, card, cardId) {
+  popupWithConfirmation.open(deleteCardOnPage, card, cardId, deleteCardInApi);
 }
 
 function handleOpenPopup(name, link) {
@@ -93,7 +92,7 @@ function removeLike(cardId, numberOfLikes) {
 // Create card
 
 function createCard(item) {
-  const card = new Card(item, cardSelectors, handleOpenPopup, openAgreementPopUp, userId, likeCard, removeLike);
+  const card = new Card(item, cardSelectors, handleOpenPopup, openPopupWithConfirmation, userId, likeCard, removeLike);
   const cardElement = card.generateCard();
   return cardElement;
 }

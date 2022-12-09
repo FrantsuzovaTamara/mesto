@@ -1,6 +1,6 @@
 import { Popup } from "./Popup.js";
 
-export class PopupAgreement extends Popup {
+export class PopupWithConfirmation extends Popup {
   constructor(popupId) {
     super(popupId);
     this._deleteButton = this._popup.querySelector('.pop-up__agree-button');
