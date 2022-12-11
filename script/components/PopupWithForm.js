@@ -26,20 +26,13 @@ export class PopupWithForm extends Popup {
 
   setEventListener() {
     super.setEventListener();
+
     this._form.addEventListener('submit', evt => {
       evt.preventDefault();
-      const inputList = this._getInputValues();
-      this._submitForm(inputList);
+      const initialText = this._submitButton.textContent;
+      this._submitButton.append('...');
+      this._submitForm(this._getInputValues(), this._submitButton, initialText);
     });
-  }
-
-  startLoading() {
-    this._textBeforeLoadingButton = this._submitButton.textContent;
-    this._submitButton.append('...');
-  }
-
-  endLoading() {
-    this._submitButton.textContent = this._textBeforeLoadingButton;
   }
 
   close() {

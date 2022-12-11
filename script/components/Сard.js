@@ -18,30 +18,26 @@ export class Card {
     return cardElement;
   }
 
-  _like() {
-    this._likeButton.classList.toggle("card__like-button_active");
-    if (this._likeButton.classList.contains("card__like-button_active")) {
-      this._likeCard(this._cardId, this._placeForNumberOfLikes);
-    } else {
-      this._removeLike(this._cardId, this._placeForNumberOfLikes);
-    };
-    
+  like(likeButton) {
+    likeButton.classList.toggle("card__like-button_active");
   }
 
   _open() {
     this._handleOpenPopUp(this._name, this._link);
   }
 
-  delete(card, cardId, deleteCardInApi) {
-    this._card = card;
-    deleteCardInApi(cardId);
-    this._card.remove();
-    this._card = null;
+  delete(card) {
+    card.remove();
+    card = null;
   }
 
   _setEventListeners() {
     this._likeButton.addEventListener('click', () => {
-      this._like();
+      if (this._likeButton.classList.contains("card__like-button_active")) {
+        this._removeLike(this._cardId, this._placeForNumberOfLikes, this._likeButton, this.like);
+      } else {
+        this._likeCard(this._cardId, this._placeForNumberOfLikes, this._likeButton, this.like);
+      };
     });
     if (this._myId === this._ownerId) {
       this._element.querySelector(this._cardSelectors.deleteButton).addEventListener('click', () => {

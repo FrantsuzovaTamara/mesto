@@ -1,15 +1,15 @@
 import { Popup } from "./Popup.js";
 
 export class PopupWithConfirmation extends Popup {
-  constructor(popupId) {
+  constructor(popupId, deleteCardInApi) {
     super(popupId);
+    this._deleteCardInApi = deleteCardInApi;
     this._deleteButton = this._popup.querySelector('.pop-up__agree-button');
   }
 
-  open(deleteCardOnPage, card, cardId, deleteCardInApi) {
+  open(deleteCardOnPage, card, cardId) {
     super.open();
     this._deleteCardOnPage = deleteCardOnPage;
-    this._deleteCardInApi = deleteCardInApi;
     this._cardId = cardId
     this._card = card;
   }
@@ -17,8 +17,7 @@ export class PopupWithConfirmation extends Popup {
   setEventListener() {
     super.setEventListener();
     this._deleteButton.addEventListener('click', () => {
-      this._deleteCardOnPage(this._card, this._cardId, this._deleteCardInApi);
-      this.close();
+      this._deleteCardInApi(this._cardId, this._card, this._deleteCardOnPage)
     })
   }
 }

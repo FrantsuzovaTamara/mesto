@@ -20,4 +20,8 @@ export class UserInfo {
     this._userId = userId;
     return this._userId
   }
+
+  getUserId() {
+    return this._userId;
+  }
 }
