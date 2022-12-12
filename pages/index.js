@@ -98,12 +98,10 @@ function likeCard(cardId, numberOfLikes, likeButton, like) {
   api.likeCard(cardId)
     .then((data) => {
       numberOfLikes.textContent = data.likes.length;
+      like(likeButton);
     })
     .catch((err) => {
       console.log(err);
-    })
-    .finally(() => {
-      like(likeButton);
     });
     
 }
@@ -112,12 +110,10 @@ function removeLike(cardId, numberOfLikes, likeButton, like) {
   api.removeLike(cardId)
     .then((data) => {
       numberOfLikes.textContent = data.likes.length;
+      like(likeButton);
     })
     .catch((err) => {
       console.log(err);
-    })
-    .finally(() => {
-      like(likeButton);
     });
 }
 
