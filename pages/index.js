@@ -13,7 +13,7 @@ import {
 
 import { Card } from "../script/components/Сard.js";
 import { Section } from "../script/components/Section.js";
-import { PopupWithForm } from "../script/components/PopUpWithForm.js";
+import { PopupWithForm } from "../script/components/PopupWithForm.js";
 import { PopupWithImage } from "../script/components/PopupWithImage.js";
 import { UserInfo } from "../script/components/UserInfo.js";
 import { FormValidator } from "../script/components/FormValidator.js"
