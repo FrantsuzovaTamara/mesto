@@ -11,6 +11,7 @@ import {
   editAvatarButton
 } from '../script/utils/constants.js';
 
+import { Card } from "../script/components/Сard.js";
 import { Section } from "../script/components/Section.js";
 import { PopupWithForm } from "../script/components/PopupWithForm.js";
 import { PopupWithImage } from "../script/components/PopupWithImage.js";
